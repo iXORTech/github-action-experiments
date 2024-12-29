@@ -10,13 +10,17 @@ jobs:
   run:
     runs-on: macos-15
     steps:
-      - name: Setup EXPORT Script
+      - name: Setup Test Script
         run: |
           echo 'export TEST="Hello, GitHub!"' > set-env.sh
-          echo $'echo \'TEST="Hello, GitHub!"\'' >> $GITHUB_ENV
+          echo $'echo \'TEST="Hello, GitHub!"\' >> $GITHUB_ENV' > set-env.sh
+          echo 'echo $TEST' > check-env.sh
       - name: Run the EXPORT Script
         run: |
           /bin/zsh set-env.sh
-      - name: Check Environment Variable
+      - name: Check Environment Variable Through Run
         run: |
           echo $TEST
+      - name: Check Environment Variable Through Script
+        run: |
+          /bin/zsh check-env.sh
