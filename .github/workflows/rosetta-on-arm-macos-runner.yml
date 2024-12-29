@@ -1,0 +1,13 @@
+name: Rosetta 2 on ARM macOS Action Runner
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs:
+  run:
+    # Run on macOS 15 (arm64) GitHub Action Runner
+    runs-on: macos-15
+    steps:
+      - name: Install Rosetta 2
+        run: |
+          softwareupdate --install-rosetta --agree-to-license
