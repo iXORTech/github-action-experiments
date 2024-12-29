@@ -23,6 +23,10 @@ jobs:
       - name: Install x86_64 Homebrew
         run: |
           /usr/bin/arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      - name: Install LLVm from x86_64 Homebrew
+      - name: Install LLVM from x86_64 Homebrew
+        continue-on-error: true # Allow this as Python (installed as LLVM dependency) should fail when Homebrew links it.
         run: |
-          /usr/bin/arch -x86_64 /usr/local/bin/brew install --force llvm
+          /usr/bin/arch -x86_64 /usr/local/bin/brew install llvm
+      - name: Force link Python installed from x86_64 Homebrew
+        run: |
+          /usr/bin/arch -x86_64 /usr/local/bin/brew link --overwrite python3
