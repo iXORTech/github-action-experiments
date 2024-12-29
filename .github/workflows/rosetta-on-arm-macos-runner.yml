@@ -25,4 +25,4 @@ jobs:
           /usr/bin/arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       - name: Install LLVm from x86_64 Homebrew
         run: |
-          /usr/bin/arch -x86_64 brew install --force llvm
+          /usr/bin/arch -x86_64 /usr/local/bin/brew install --force llvm
