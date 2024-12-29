@@ -2,7 +2,8 @@ name: Rosetta 2 on ARM macOS Action Runner
 
 on:
   push:
-    branches: [ "main" ]
+    paths:
+      - '.github/workflows/rosetta-on-arm-macos-runner.yml'
   workflow_dispatch:
 
 jobs:
