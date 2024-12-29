@@ -18,3 +18,6 @@ jobs:
         # This should output "i386"
         run: |
           /usr/bin/arch -x86_64 /bin/zsh show-arch.sh
+      - name: Install x86_64 Homebrew
+        run: |
+          /usr/bin/arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
