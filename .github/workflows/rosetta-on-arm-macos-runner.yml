@@ -16,6 +16,9 @@ jobs:
       - name: Prepare Shell arch test script
         run: |
           echo 'arch' > show-arch.sh
+          echo 'import platform' >> test-arch.py
+          echo 'print(platform.version()) >> test-arch.py
+          echo 'print(platform.platform()) >> test-arch.py
       - name: Test to x86_64 Shell
         # This should output "i386"
         run: |
@@ -30,3 +33,9 @@ jobs:
       - name: Force link Python installed from x86_64 Homebrew
         run: |
           /usr/bin/arch -x86_64 /usr/local/bin/brew link --overwrite python3
+      - name: Test x86_64 Homebrew installed LLVM
+        run: |
+          usr/bin/arch -x86_64 /usr/local/opt/llvm/bin/clang++ --version
+      - name: Test x86_64 Homebrew installed Python
+        run: |
+          usr/bin/arch -x86_64 /usr/local/opt/python3/bin/python3 test-arch.py
