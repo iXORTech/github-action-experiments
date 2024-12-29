@@ -1,0 +1,21 @@
+name: Test Setup Shell Environment Variable
+
+on:
+  push:
+    paths:
+      - '.github/workflows/setup-shell-env.yml'
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: macos-15
+    steps:
+      - name: Setup EXPORT Script
+        run: |
+          echo 'export TEST="Hello, GitHub!"' > set-env.sh
+      - name: Run the EXPORT Script
+        run: |
+          ./set-env.sh
+      - name: Check Environment Variable
+        run: |
+          echo $TEST
