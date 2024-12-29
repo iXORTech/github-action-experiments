@@ -13,7 +13,7 @@ jobs:
       - name: Setup EXPORT Script
         run: |
           echo 'export TEST="Hello, GitHub!"' > set-env.sh
-          echo 'echo \'TEST="Hello, GitHub!"\'' >> $GITHUB_ENV
+          echo $'echo \'TEST="Hello, GitHub!"\'' >> $GITHUB_ENV
       - name: Run the EXPORT Script
         run: |
           /bin/zsh set-env.sh
