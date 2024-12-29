@@ -35,7 +35,7 @@ jobs:
           /usr/bin/arch -x86_64 /usr/local/bin/brew link --overwrite python3
       - name: Test x86_64 Homebrew installed LLVM
         run: |
-          usr/bin/arch -x86_64 /usr/local/opt/llvm/bin/clang++ --version
+          /usr/bin/arch -x86_64 /usr/local/opt/llvm/bin/clang++ --version
       - name: Test x86_64 Homebrew installed Python
         run: |
-          usr/bin/arch -x86_64 /usr/local/opt/python3/bin/python3 test-arch.py
+          /usr/bin/arch -x86_64 /usr/local/opt/python3/bin/python3 test-arch.py
