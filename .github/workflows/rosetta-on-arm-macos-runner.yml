@@ -11,3 +11,10 @@ jobs:
       - name: Install Rosetta 2
         run: |
           softwareupdate --install-rosetta --agree-to-license
+      - name: Prepare Shell arch test script
+        run: |
+          echo 'arch' > show-arch.sh
+      - name: Test to x86_64 Shell
+        # This should output "i386"
+        run: |
+          /usr/bin/arch -x86_64 /bin/zsh show-arch.sh
