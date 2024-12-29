@@ -17,8 +17,8 @@ jobs:
         run: |
           echo 'arch' > show-arch.sh
           echo 'import platform' >> test-arch.py
-          echo 'print(platform.version()) >> test-arch.py
-          echo 'print(platform.platform()) >> test-arch.py
+          echo 'print(platform.version())' >> test-arch.py
+          echo 'print(platform.platform())' >> test-arch.py
       - name: Test to x86_64 Shell
         # This should output "i386"
         run: |
